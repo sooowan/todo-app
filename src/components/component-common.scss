@@ -1,0 +1,109 @@
+
+.TodoTemplate {
+    width: 512px;
+    margin: 6rem auto;
+    border-radius: 4px;
+    overflow: hidden;
+
+    .app-title {
+        background-color: bisque;
+        color: #454544;
+        height: 64px;
+        font-size: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .content {
+        position: relative;
+        padding: 12px;
+        background-color: #fff;
+    }
+}
+
+.TodoListItem-virtualized {
+    &+& {
+        border-top: 1px solid #e0e0e0;
+    }
+}
+
+.TodoListItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+
+    .text {
+        font-size: 14px;
+        line-height: 20px;
+        flex: 1;
+    }
+
+    .ui-check {
+        flex: 1;
+        svg{
+            font-size: 18px;
+        }
+        &.checked {
+            svg {
+                color: #22b8cf;
+            }
+            .text {
+                color: #a8a8a8;
+                text-decoration: line-through;
+            }
+        }
+    }
+}
+
+
+.TodoInsert {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+    .ui-input {
+        flex: 1;
+    }
+}
+
+
+.btn {
+    border: none;
+    background: none;
+    outline: none;
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    cursor: pointer;    
+    justify-content: center;
+    &-default {
+        background-color: #11aff923;
+        &:hover {
+            background-color: #11aff954; 
+        }
+    }
+    &-remove {
+        font-size: 16px;
+        color: rgba(193, 12, 12, 0.821);
+    }
+}
+
+.ui {
+    &-input {
+        border: none;
+        font-size: 14px;
+        line-height: 22px;
+        color: #333;
+    }
+
+    &-check {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 12px;
+        cursor: pointer;
+    }
+}
