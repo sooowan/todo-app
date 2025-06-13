@@ -1,109 +1,125 @@
-
 .TodoTemplate {
-    width: 512px;
-    margin: 6rem auto;
-    border-radius: 4px;
-    overflow: hidden;
+  width: calc(100% - 48px);
+  max-width: 365px;
+  margin: 0 auto;
+  height: calc(100vh - 64px);
+  max-height: 650px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: #cbcbcb 0px 0px 20px 20px;
+  background-color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 24px;
+  box-sizing: border-box;
 
-    .app-title {
-        background-color: bisque;
-        color: #454544;
-        height: 64px;
-        font-size: 24px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+  .app-title {
+    padding-top: 24px;
+    color: #333;
+    font-size: 20px;
+    text-align: left;
+    font-weight: 700;
+  }
 
-    .content {
-        position: relative;
-        padding: 12px;
-        background-color: #fff;
-    }
-}
-
-.TodoListItem-virtualized {
-    &+& {
-        border-top: 1px solid #e0e0e0;
-    }
+  .content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 48px);
+  }
 }
 
 .TodoListItem {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
 
-    .text {
-        font-size: 14px;
-        line-height: 20px;
-        flex: 1;
-    }
+  .text {
+    font-size: 14px;
+    line-height: 20px;
+    flex: 1;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 
-    .ui-check {
-        flex: 1;
-        svg{
-            font-size: 18px;
-        }
-        &.checked {
-            svg {
-                color: #22b8cf;
-            }
-            .text {
-                color: #a8a8a8;
-                text-decoration: line-through;
-            }
-        }
+  .ui-check {
+    flex: 1;
+    overflow: hidden;
+    svg {
+      font-size: 20px;
+      color: #028cf5;
     }
+    &.checked {
+      svg {
+        color: #04bc71;
+      }
+      .text {
+        color: #a8a8a8;
+        text-decoration: line-through;
+      }
+    }
+  }
 }
-
 
 .TodoInsert {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 12px;
-    .ui-input {
-        flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  background-color: #faf6ea;
+  padding: 12px;
+  border-radius: 8px;
+  margin-top: 12px;
+
+  .ui-input {
+    background-color: #faf6ea;
+
+    flex: 1;
+    &::placeholder {
+      color: #c2ad6e;
     }
+  }
 }
 
-
 .btn {
-    border: none;
-    background: none;
-    outline: none;
-    display: flex;
-    align-items: center;
-    padding: 8px;
-    cursor: pointer;    
-    justify-content: center;
-    &-default {
-        background-color: #11aff923;
-        &:hover {
-            background-color: #11aff954; 
-        }
+  border: none;
+  background: none;
+  outline: none;
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  cursor: pointer;
+  border-radius: 4px;
+  justify-content: center;
+  &-default {
+    background-color: #f0e2b7;
+    svg {
+      color: #927930;
     }
-    &-remove {
-        font-size: 16px;
-        color: rgba(193, 12, 12, 0.821);
-    }
+  }
+  &-remove {
+    font-size: 16px;
+    color: rgba(193, 12, 12, 0.821);
+  }
 }
 
 .ui {
-    &-input {
-        border: none;
-        font-size: 14px;
-        line-height: 22px;
-        color: #333;
-    }
+  &-input {
+    border: none;
+    font-size: 14px;
+    line-height: 22px;
+    color: #333;
+  }
 
-    &-check {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        gap: 12px;
-        cursor: pointer;
-    }
+  &-check {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+  }
 }
