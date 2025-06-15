@@ -4,18 +4,31 @@ import TodoTemplate from './components/TodoTemplate';
 import TodoInsert from './components/TodoInsert';
 import TodoList from './components/TodoList';
 import { useState, useRef, useCallback } from 'react';
+import { formatDate } from './lib/format.js';
 
 function App() {
-  const [todos, setTodos] = useState(createBulkTodos);
+  const [todos, setTodos] = useState([]);
+  const [error, setError] = useState('');
 
   let nextId = useRef(2501);
 
   const addList = useCallback(
     (text) => {
-      setTodos([
-        ...todos,
-        { id: nextId.current++, text: text, checked: false },
-      ]);
+      if (text === '') {
+        setError('내용을 입력해 주삼.');
+        return;
+      } else {
+        setError('');
+        setTodos([
+          ...todos,
+          {
+            id: nextId.current++,
+            text: text,
+            checked: false,
+            time: formatDate(new Date()),
+          },
+        ]);
+      }
     },
     [todos],
   );
@@ -40,21 +53,22 @@ function App() {
   //   )
   // }, [todos])
 
-  function createBulkTodos() {
-    const arr = [];
-    for (let i = 1; i <= 15; i++) {
-      arr.push({
-        id: i,
-        text: `해야 할 일 ${i}`,
-        checked: false,
-      });
-    }
-    return arr;
-  }
+  // function createBulkTodos() {
+  //   const arr = [];
+  //   for (let i = 1; i <= 5; i++) {
+  //     arr.push({
+  //       id: i,
+  //       text: `해야 할 일 ${i}`,
+  //       checked: false,
+  //       time: formatDate(new Date()),
+  //     });
+  //   }
+  //   return arr;
+  // }
 
   return (
     <TodoTemplate>
-      <TodoInsert onInsert={addList} />
+      <TodoInsert onInsert={addList} error={error} />
       <TodoList todo={todos} onRemove={handleRemove} onToggle={onToggle} />
     </TodoTemplate>
   );

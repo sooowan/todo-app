@@ -35,22 +35,48 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 0;
+  width: 100%;
+  padding: 12px;
+  background-color: #f6f8fa;
+  border-radius: 8px;
+  box-sizing: border-box;
+  & + & {
+    margin-top: 12px;
+  }
+  .text-wrap {
+    width: 100%;
+    overflow: hidden;
+    span {
+      width: 100%;
+      display: block;
+    }
+    .text {
+      font-size: 14px;
+      line-height: 20px;
+      flex: 1;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      display: -webkit-box;
+      line-clamp: 5;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 5;
+      word-wrap: break-word;
+    }
 
-  .text {
-    font-size: 14px;
-    line-height: 20px;
-    flex: 1;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    .time {
+      font-size: 12px;
+      line-height: 16px;
+      color: #a8a8a8;
+      margin-top: 8px;
+    }
   }
 
   .ui-check {
     flex: 1;
     overflow: hidden;
     svg {
-      font-size: 20px;
-      color: #028cf5;
+      font-size: 24px;
+      color: #a2a2a2;
     }
     &.checked {
       svg {
@@ -69,11 +95,11 @@
   justify-content: space-between;
   align-items: center;
   gap: 8px;
-  margin-bottom: 12px;
+  //   margin-top: 12px;
+  //   margin-bottom: 12px;
   background-color: #faf6ea;
   padding: 12px;
   border-radius: 8px;
-  margin-top: 12px;
 
   .ui-input {
     background-color: #faf6ea;
@@ -102,7 +128,7 @@
     }
   }
   &-remove {
-    font-size: 16px;
+    font-size: 20px;
     color: rgba(193, 12, 12, 0.821);
   }
 }
@@ -118,7 +144,7 @@
   &-check {
     display: flex;
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-start;
     gap: 12px;
     cursor: pointer;
   }
