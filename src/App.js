@@ -7,9 +7,10 @@ import { useState, useRef, useCallback } from 'react';
 import { formatDate } from './lib/format.js';
 
 function App() {
-  const [todos, setTodos] = useState([]);
-  const [error, setError] = useState('');
+  const getNoteList = localStorage.getItem('noteList');
 
+  const [todos, setTodos] = useState(JSON.parse(getNoteList));
+  const [error, setError] = useState('');
   let nextId = useRef(2501);
 
   const addList = useCallback(

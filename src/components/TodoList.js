@@ -39,6 +39,8 @@ export default function TodoList({ todo, onRemove, onToggle }) {
   //   },
   //   [onRemove, todo, onToggle],
   // );
+  localStorage.setItem('noteList', JSON.stringify(todo));
+  // navigate(process.env.PUBLIC_URL + '/');
 
   return (
     // <>
@@ -70,7 +72,7 @@ export default function TodoList({ todo, onRemove, onToggle }) {
         todo.map((td) => (
           <TodoListItem
             todo={td}
-            key={td.index}
+            key={td.id}
             onRemove={onRemove}
             onToggle={onToggle}
           />
