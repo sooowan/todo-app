@@ -3,15 +3,15 @@ import './components/component-common.scss';
 import TodoTemplate from './components/TodoTemplate';
 import TodoInsert from './components/TodoInsert';
 import TodoList from './components/TodoList';
-import { useState, useRef, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 import { formatDate } from './lib/format.js';
+import { v4 as uuidv4 } from 'uuid';
 
 function App() {
-  const getNoteList = localStorage.getItem('noteList');
+  const getNoteList = JSON.parse(localStorage.getItem('noteList'));
 
-  const [todos, setTodos] = useState(JSON.parse(getNoteList));
+  const [todos, setTodos] = useState(getNoteList === null ? [] : getNoteList);
   const [error, setError] = useState('');
-  let nextId = useRef(2501);
 
   const addList = useCallback(
     (text) => {
@@ -23,7 +23,7 @@ function App() {
         setTodos([
           ...todos,
           {
-            id: nextId.current++,
+            id: uuidv4(),
             text: text,
             checked: false,
             time: formatDate(new Date()),

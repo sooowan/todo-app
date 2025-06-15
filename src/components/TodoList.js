@@ -1,6 +1,6 @@
-import { useCallback } from 'react';
+// import { useCallback } from 'react';
 import TodoListItem from './TodoListItem';
-import { List } from 'react-virtualized';
+// import { List } from 'react-virtualized';
 import styled from 'styled-components';
 
 const NoContent = styled.div`
@@ -40,7 +40,6 @@ export default function TodoList({ todo, onRemove, onToggle }) {
   //   [onRemove, todo, onToggle],
   // );
   localStorage.setItem('noteList', JSON.stringify(todo));
-  // navigate(process.env.PUBLIC_URL + '/');
 
   return (
     // <>
