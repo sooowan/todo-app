@@ -3,19 +3,19 @@ import TodoListItem from './TodoListItem';
 // import { List } from 'react-virtualized';
 import styled from 'styled-components';
 
-const NoContent = styled.div`
-  width: 100%;
-  height: 100%;
-  border-radius: 8px;
-  /* background-color: #f6f8fa; */
-  padding: 12px;
-  box-sizing: border-box;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 14px;
-  color: #adadad;
-`;
+// const NoContent = styled.div`
+//   width: 100%;
+//   height: 100%;
+//   border-radius: 8px;
+//   /* background-color: #f6f8fa; */
+//   padding: 12px;
+//   box-sizing: border-box;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   font-size: 14px;
+//   color: #adadad;
+// `;
 
 const ListWrap = styled.div`
   width: 100%;
@@ -66,7 +66,9 @@ export default function TodoList({ todo, onRemove, onToggle }) {
     // </>
     <ListWrap>
       {todo.length === 0 ? (
-        <NoContent>할 일을 추가해 보세요!</NoContent>
+        <div className="flex items-center justify-center h-full text-sm text-gray-400">
+          할 일을 추가해 보세요!
+        </div>
       ) : (
         todo.map((td) => (
           <TodoListItem
