@@ -31,7 +31,7 @@ export default function TodoInsert({ onInsert, error }) {
       <form className="TodoInsert" onSubmit={onSubmint}>
         <input
           type="text"
-          className="ui-input"
+          className="ui-input w-full"
           placeholder="할 일을 입력해 주세요."
           value={input}
           onChange={(e) => setInput(e.target.value)}
